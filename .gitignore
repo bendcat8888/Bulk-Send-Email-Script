@@ -1,0 +1,11 @@
+Send.txt
+Email_Contacts.xlsx
+*.pyc
+__pycache__/
+.backup/
+.venv/
+venv/
+env/
+.env
+.env.*
+*.log
