@@ -15,11 +15,17 @@ Sends formatted HTML emails to multiple recipients based on an Excel file, group
 
 ## Key features
 
-- One-email-per-recipient grouping (by `NAME` + `EMAIL` + `CC`)
-- HTML email body with a table of requests
-- Conditional body text based on `INDICATOR` (e.g., `REIM` vs others)
-- SQL Server history logging (`EmailHistory` table auto-created if missing)
-- Contact export from history (`Email_Contacts.xlsx`)
+- One-email-per-recipient grouping (by `NAME` + `EMAIL` + `CC`) so each person gets a single consolidated email
+- Optional CC per recipient (from the `CC` column)
+- HTML email body with a table that lists all rows for that recipient
+- Reimbursement vs Cash Advance messaging (based on `INDICATOR`)
+  - If the grouped rows are `INDICATOR=REIM`, the email ends with an acknowledgement request
+  - If any row has a non-`REIM` indicator (e.g., Cash Advance), the email ends with the Cash Advance reminders block
+- Automatic data cleanup (string conversion + `nan`/blank handling) to reduce send failures
+- Date parsing/formatting for `DATE ONLINE` (used in the table and subject as `Month Day, Year`)
+- Amount formatting with thousands separators and 2 decimals
+- SQL Server history logging (`EmailHistory` table auto-created if missing), including error logging when send fails
+- Contact export from history (`Email_Contacts.xlsx`) for reference
 
 ## Excel input expectations
 
@@ -54,7 +60,7 @@ The subject is formatted as:
 
 To make this portable (no Windows environment variable setup needed), create a local `.env` file in the same folder as the script. The script will auto-load it at startup.
 
-1. Copy `.env.example` to `.env`
+1. Create a file named `.env` in the same folder as `Send Email To All v2b.py`
 2. Fill in your real values
 3. Run the script normally
 
