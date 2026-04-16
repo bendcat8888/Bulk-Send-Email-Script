@@ -62,8 +62,8 @@ Example `.env`:
 
 ```env
 EMAIL_PASSWORD="your_gmail_app_password"
-SQLSERVER_HOST="192.168.16.2\\INNOGENBC"
-SQLSERVER_DB="RXTtracking"
+SQLSERVER_HOST="192.168.x.x\\InnoGen"
+SQLSERVER_DB="Xtracking"
 SQLSERVER_USER="your_user"
 SQLSERVER_PASSWORD="your_password"
 SQLSERVER_DRIVER="ODBC Driver 17 for SQL Server"
@@ -92,7 +92,7 @@ Set the SQL Server connection info using environment variables (recommended), or
 
 Option A (recommended): environment variables
 
-- `SQLSERVER_HOST` (e.g. `192.168.16.2\\INSTANCE` or a hostname)
+- `SQLSERVER_HOST` (e.g. `192.168.x.x\\INSTANCE` or a hostname)
 - `SQLSERVER_DB`
 - `SQLSERVER_USER`
 - `SQLSERVER_PASSWORD`
@@ -106,7 +106,7 @@ Example (Option A) PowerShell:
 
 ```powershell
 $env:EMAIL_PASSWORD="your_gmail_app_password"
-$env:SQLSERVER_HOST="192.168.16.2\INNOGENBC"
+$env:SQLSERVER_HOST="192.168.x.x\InnoGen"
 $env:SQLSERVER_DB="RXTtracking"
 $env:SQLSERVER_USER="your_user"
 $env:SQLSERVER_PASSWORD="your_password"
